@@ -1,0 +1,140 @@
+
+%  ______     __     __  _____
+%  / ___\ \   / /    / / |  _ \ ___  ___ _   _ _ __ ___   ___
+% | |    \ \ / /    / /  | |_) / _ \/ __| | | | '_ ` _ \ / _ \
+% | |___  \ V /    / /   |  _ <  __/\__ \ |_| | | | | | |  __/
+%  \____|  \_/    /_/    |_| \_\___||___/\__,_|_| |_| |_|\___|
+%
+
+% My personal resume...
+
+\documentclass{cv}
+
+\begin{document}
+
+% My Real Name
+\name{Amlesh Sivanantham}
+
+% Contract Information
+\section{Contact Information}
+\contact{samlesh@gmail.com}{(408) 219-6474}{https://github.com/zamlz}
+
+% My skill set
+\section{Skills}
+\skills{Python, C, C++,
+Scheme, \LaTeX, Unix Shell Scripting}
+{TensorFlow, NumPy, OpenCV}
+{Linux, Unix, Git, Scrum, Vim}
+
+% Education History
+\section{Education}
+\datelist{08.2017 - \normalsize{Present},
+\textsc{University of Southern California}\\
+\textbf{M.S. in Computer Science}\\
+\textit{Concentration: Intelligent Robotics},
+09.2013 - 06.2017,
+{\textsc{University of California, Santa Cruz}}\\
+\textbf{B.S. in Computer Engineering}\\
+\textbf{B.S. in Computer Science}\\
+Thesis: \textit{Detecting Anomalies in Time-Series Data using\\
+Long Short-Term Memory Networks} - Advisor: Dr.~Patrick Mantey}
+
+% Work Experience
+\section{Experience}
+\datelist{09.2017 - \normalsize{Present},
+\textbf{Graduate Research Assistant}\\
+\textit{University of Southern California -
+Robotic Embedded Systems Laboratory}\\
+Perform graduate research in Deep Reinforcement Learning and it's application
+to Robotics. Working for a PhD student on research problems related to perception
+and navigation with Deep Reinforcement Learning.,
+09.2016 - 06.2017,
+\textbf{Undergraduate Research Assistant}\\
+\textit{{University of California, Santa Cruz} -
+Jack Baskin School of Engineering}\\
+Performed undergraduate research in Machine Learning and Deep Learning
+for the Smart Energy Analytic Disaggregation System project for
+Dr.~Ali Adabi to explore methods to analyze and identify time-series
+data.
+}
+
+% Project Section
+\section{Projects}
+\begin{adjustwidth}{0.5cm}{0.5cm}
+
+\projectsubsectionold{Quadcopter Reinforcement Learning Agent}
+{USC R.E.S.L.}
+{Working on building an Reinforcement Learning agent that is capable of
+navigating quickly through a cluttered environment. Train the agent in
+simulation, and transfer the learnt policy to a real-world quadcopter.
+\textit{In Progress}}{}
+
+\projectsubsection{Imagination Augmented Agents for Rubik's Cubes}
+{Jeju DL Camp 2018}
+{Participated in the Jeju Deep Learning Camp where I worked to
+implement the paper \textit{Imagination Augmented Agents for
+Deep Reinforcement Learning} on a self-made Rubik's Cube environment}
+{https://github.com/zamlz/dlcampjeju2018-I2A-cube}
+
+\projectsubsectionold{Anomaly Detection in Time Series Data}
+{Undergraduate Senior Thesis}
+{Researched Deep Learning and implemented a long short-term memory
+network that identifies if a given subsequence of a particular
+time-series system is anomalous or not. The dataset that I worked with
+was provided by my faculty advisor which corresponds to the energy usage
+of an electric meter on the circuit that provides power to the water
+pump. After training, the network was able to identify anomalies with
+an accuracy of 90\%.}{}
+
+\projectsubsectionold{Who's Lazy? Not Eye}
+{Hack UCSC 2017}
+{A vision therapy program for people with lazy eye using a standard
+webcam. The app uses the webcam to constantly analyze the user's eyes
+and notifies them when their eyes drift away. Particularly, the client
+can pause any media application that the user has playing in the
+background and will only let them resume their application once they
+have focused their eyes. I worked on the algorithm that located the
+position of the pupils using machine learning and identified whether
+the pupils correlated with lazy eyes or not based on that position.}
+{https://github.com/zamlz/hackucsc-lazyeye}
+
+\projectsubsectionold{Othello (Reversi) for the PSoC 5LP}
+{Project for Microcontroller System Design Class}
+{Implemented Othello using C and the Cypress API for the Othello PSoC 5LP.
+It was built using all the different concepts learned in class. Refer to the
+report in the documentation directory in the repository for more details.}
+{https://gitlab.com/zamlz/Othello-PSoC-5LP}
+
+\projectsubsectionold{UCSC Plaza}
+{Project for Software Engineering Class}
+{UCSC Plaza is an event manager designed for members of UCSC. This is simply
+a prototype. Worked with JavaScript and JQuery to make the interface which
+connects the front-end to the web-server. Project was developed using Scrum
+practices.}
+{https://github.com/Skm1221/CMPS115TeamProject}
+
+\projectsubsectionold{HummusLite}
+{Project on Logic Design}
+{A simple project I worked on over Summer of 2016. Goal was to build a simple
+CPU in Minecraft. The CPU supports 16 instructions and has a program data
+size of 256 bytes. Each instruction is a byte. Programming for the CPU
+requires using a punch board system that was also built from scratch in
+Minecraft.}
+{https://gitlab.com/zamlz/HummusLite}
+\end{adjustwidth}
+
+% A more personal record about me
+\section{Research Interests and Hobbies}
+\begin{adjustwidth}{0.5cm}{0.5cm}
+Enjoy researching about Artificial Intelligence and Robotics,
+particularly in the fields of Machine Learning and
+Deep Learning and its applications to perception and
+decision making. Consequently, very interested in the field of
+Deep Reinforcement Learning. Like to spend of my free time
+researching linux, physics, and biology. Occasionally,
+enjoy practicing the violin and speedcubing.
+
+\end{adjustwidth}
+
+\end{document}
+
