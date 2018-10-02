@@ -33,8 +33,6 @@ MAKEARGS  = --no-print-directory -C
 
 # Build both versions of the resume and view them.
 pdf: single-page full
-	${PDFTEST} ${MINFILE}
-	${PDFTEST} ${MAXFILE}
 
 # Build instructions for the single page resume
 single-page: ${MINSRC} ${BIBSRC}

@@ -10,6 +10,7 @@
 \RequirePackage{enumitem}
 \RequirePackage{xparse}
 \RequirePackage[dvipsnames]{xcolor}
+\RequirePackage[stable]{footmisc}
 \providecommand\fullresume{false}
 
 % Set the margins
@@ -98,7 +99,7 @@
 \newcommand{\projectsubsection}[4]{
     \pagebreak[1] % This tells latex that if we need to, break page
     \subsection[#1]{\href{#4}{#1}
-        ~{\normalfont\small\textit{(#2)}}\\
+        ~{\normalfont\footnotesize\textit{(#2)}}\\
         {\normalfont\normalsize#3}
     }
 }
