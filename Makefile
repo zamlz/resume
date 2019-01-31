@@ -10,7 +10,7 @@
 
 PDFEXE    = pdflatex --shell-escape
 BIBEXE    = bibtex
-PDFTEST   = zathura 
+PDFTEST   = zathura
 
 MINSRC    = resume.tex
 MAXSRC	  = '\providecommand{\fullresume{true}}\input{${MINSRC}}'
@@ -32,10 +32,10 @@ MAKEARGS  = --no-print-directory -C
 ####################################################
 
 # Build both versions of the resume and view them.
-pdf: single-page full
+pdf: ${MINFILE} ${MAXFILE}
 
 # Build instructions for the single page resume
-single-page: ${MINSRC} ${BIBSRC}
+${MINFILE}: ${MINSRC} ${BIBSRC}
 #	-${PDFEXE} ${MINSRC}
 #	-${BIBEXE} ${MINSRC:.tex=.aux}
 #	-${PDFEXE} ${MINSRC}
@@ -43,16 +43,23 @@ single-page: ${MINSRC} ${BIBSRC}
 	mv ${MINSRC:.tex=.pdf} ${MINFILE}
 
 # Build instructions for the full resume
-full: ${MINSRC} ${BIBSRC}
+${MAXFILE}: ${MINSRC} ${BIBSRC}
 #	-${PDFEXE} ${MAXSRC}
 #	-${BIBEXE} ${MAXSRC:.tex=.aux}
 #	-${PDFEXE} ${MAXSRC}
 	-${PDFEXE} ${MAXSRC}
 	mv ${MINSRC:.tex=.pdf} ${MAXFILE}
 
+# Create biblio file of papers you've authored
+${BIBSRC}:
+	touch ${BIBSRC}
+	#pubs list -k author:Sivanantham
+
+
 # Clean the build directory
 clean:
 	-rm -fv ${MISCFILE}
+	-rm -fv ${BIBSRC}
 	-rm -rfv _minted*/
 	-rm -rf .svg/
 
@@ -69,3 +76,11 @@ refresh: spotless pdf
 ci: spotless
 	git add .
 	git commit -e
+
+# Preview the document in real time
+preview: spotless pdf
+	while true; do \
+		make PDFEXE="${PDFEXE} -interaction=nonstopmode" ${ENDFILE} > \
+		/dev/null; \
+		sleep 1; \
+	done;
