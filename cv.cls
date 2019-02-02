@@ -13,6 +13,10 @@
 \RequirePackage[stable]{footmisc}
 \providecommand\fullresume{false}
 
+\RequirePackage{natbib}
+\RequirePackage{bibentry}
+\nobibliography*
+
 % Set the margins
 \usepackage[margin=1.0in]{geometry}
 
@@ -93,6 +97,11 @@
 % Create a education list
 \newcommand{\datelist}[1]{
     \speciallist[leftmargin=4.0cm]{#1}
+}
+
+% Create a paper list
+\newcommand{\paperlist}[1]{
+    \speciallist[leftmargin=1.25cm]{#1}
 }
 
 % A sub-section for recent projects

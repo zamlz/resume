@@ -12,9 +12,14 @@ PDFEXE    = pdflatex --shell-escape
 BIBEXE    = bibtex
 PDFTEST   = zathura
 
+CLASS     = cv.cls
 MINSRC    = resume.tex
 MAXSRC	  = '\providecommand{\fullresume{true}}\input{${MINSRC}}'
-BIBSRC    = bibliography.bib
+
+BIBSRC    = papers.bib
+PUBSEXE   = $${HOME}/.local/bin/pubs
+PUBSPAPER = ${PUBSEXE} list -k author:Sivanantham
+PUBSEXPORT= xargs ${PUBSEXE} export
 
 MINFILE   = amlesh_resume.pdf
 MAXFILE   = amlesh_curriculum_vitae.pdf
@@ -35,26 +40,24 @@ MAKEARGS  = --no-print-directory -C
 pdf: ${MINFILE} ${MAXFILE}
 
 # Build instructions for the single page resume
-${MINFILE}: ${MINSRC} ${BIBSRC}
-#	-${PDFEXE} ${MINSRC}
-#	-${BIBEXE} ${MINSRC:.tex=.aux}
-#	-${PDFEXE} ${MINSRC}
+${MINFILE}: ${MINSRC} ${BIBSRC} ${CLASS}
+	-${PDFEXE} ${MINSRC}
+	-${BIBEXE} ${MINSRC:.tex=.aux}
+	-${PDFEXE} ${MINSRC}
 	-${PDFEXE} ${MINSRC}
 	mv ${MINSRC:.tex=.pdf} ${MINFILE}
 
 # Build instructions for the full resume
-${MAXFILE}: ${MINSRC} ${BIBSRC}
-#	-${PDFEXE} ${MAXSRC}
-#	-${BIBEXE} ${MAXSRC:.tex=.aux}
-#	-${PDFEXE} ${MAXSRC}
+${MAXFILE}: ${MINSRC} ${BIBSRC} ${CLASS}
+	-${PDFEXE} ${MAXSRC}
+	-${BIBEXE} ${MAXSRC:.tex=.aux}
+	-${PDFEXE} ${MAXSRC}
 	-${PDFEXE} ${MAXSRC}
 	mv ${MINSRC:.tex=.pdf} ${MAXFILE}
 
 # Create biblio file of papers you've authored
 ${BIBSRC}:
-	touch ${BIBSRC}
-	#pubs list -k author:Sivanantham
-
+	${PUBSPAPER} | ${PUBSEXPORT} > ${BIBSRC}
 
 # Clean the build directory
 clean:
@@ -79,8 +82,9 @@ ci: spotless
 
 # Preview the document in real time
 preview: spotless pdf
+	${PDFTEST} ${MAXFILE} &
 	while true; do \
-		make PDFEXE="${PDFEXE} -interaction=nonstopmode" ${ENDFILE} > \
+		make PDFEXE="${PDFEXE} -interaction=nonstopmode" pdf > \
 		/dev/null; \
 		sleep 1; \
 	done;
