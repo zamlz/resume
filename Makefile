@@ -57,7 +57,8 @@ ${MAXFILE}: ${MINSRC} ${BIBSRC} ${CLASS}
 
 # Create biblio file of papers you've authored
 ${BIBSRC}:
-	${PUBSPAPER} | ${PUBSEXPORT} > ${BIBSRC}
+	touch ${BIBSRC} # hack to trick makefile to building rest of the file
+	-${PUBSPAPER} | ${PUBSEXPORT} > ${BIBSRC}
 
 # Clean the build directory
 clean:
