@@ -81,11 +81,11 @@
 \ExplSyntaxOff
 
 % Generate the new contact details
-\newcommand{\contact}[3]{
+\newcommand{\contact}[4]{
     \speciallist[leftmargin=4.0cm, itemsep=-4pt]
         {Website:,\href{#3}{\ttfamily#3},
         Email:,\href{mailto:#1}{\ttfamily#1},
-        Phone:,#2}
+        Phone:,#2,Citizenship:,#4}
 }
 
 % Create a skills list
