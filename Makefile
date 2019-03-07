@@ -56,14 +56,12 @@ ${MAXFILE}: ${MINSRC} ${BIBSRC} ${CLASS}
 	mv ${MINSRC:.tex=.pdf} ${MAXFILE}
 
 # Create biblio file of papers you've authored
-${BIBSRC}:
-	touch ${BIBSRC} # hack to trick makefile to building rest of the file
+bib:
 	-${PUBSPAPER} | ${PUBSEXPORT} > ${BIBSRC}
 
 # Clean the build directory
 clean:
 	-rm -fv ${MISCFILE}
-	-rm -fv ${BIBSRC}
 	-rm -rfv _minted*/
 	-rm -rf .svg/
 
