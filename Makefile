@@ -18,7 +18,7 @@ MAXSRC	  = '\providecommand{\fullresume{true}}\input{${MINSRC}}'
 
 BIBSRC    = papers.bib
 PUBSEXE   = $${HOME}/.local/bin/pubs
-PUBSPAPER = ${PUBSEXE} list -k author:Sivanantham
+PUBSPAPER = ${PUBSEXE} list -k citekey:amlesh
 PUBSEXPORT= xargs ${PUBSEXE} export
 
 MINFILE   = amlesh_resume.pdf
