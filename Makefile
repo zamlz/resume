@@ -85,5 +85,5 @@ preview: spotless pdf
 	while true; do \
 		make PDFEXE="${PDFEXE} -interaction=nonstopmode" pdf > \
 		/dev/null; \
-		sleep 1; \
+		sleep 0.5; \
 	done;
