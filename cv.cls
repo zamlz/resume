@@ -18,7 +18,7 @@
 \nobibliography*
 
 % Set the margins
-\usepackage[margin=1.0in]{geometry}
+\usepackage[margin=0.75in]{geometry}
 
 % We also to use images
 \usepackage[]{graphicx}
@@ -81,9 +81,11 @@
 \ExplSyntaxOff
 
 % Generate the new contact details
-\newcommand{\contact}[4]{
+\newcommand{\contact}[6]{
     \speciallist[leftmargin=4.0cm, itemsep=-4pt]
         {Website:,\href{#3}{\ttfamily#3},
+        GitHub:,\href{#5}{\ttfamily#5},
+        GitLab:,\href{#6}{\ttfamily#6},
         Email:,\href{mailto:#1}{\ttfamily#1},
         Phone:,#2,Citizenship:,#4}
 }
@@ -91,7 +93,8 @@
 % Create a skills list
 \newcommand{\skills}[3]{
     \speciallist[leftmargin=4.0cm, itemsep=-4pt]
-    {Languages:,{#1},Libraries:,{#2},Technologies:,{#3}}
+    %{Languages:,{#1},Libraries:,{#2},Technologies:,{#3}}
+    {Languages:,{#1},Libraries:,{#2}}
 }
 
 % Create a education list
