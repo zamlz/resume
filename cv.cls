@@ -18,7 +18,7 @@
 \nobibliography*
 
 % Set the margins
-\usepackage[margin=0.75in]{geometry}
+\usepackage[margin=0.5in]{geometry}
 
 % We also to use images
 \usepackage[]{graphicx}
@@ -101,15 +101,15 @@
 }
 
 % Traditional compact contact details
-\newcommand{\contact}[5]{
+\newcommand{\contact}[6]{
     \begin{center}
-        \imgraised{email} #1
+        \imgraised{email} \href{mailto:#1}{\ttfamily#1}
         {\LARGE\textperiodcentered}
-        \imgraised{phone} #2
+        \imgraised{phone} {\ttfamily#2}
         {\LARGE\textperiodcentered}
-        \imgraised{website} #3
+        \imgraised{website} \href{#4}{\ttfamily#3}
         {\LARGE\textperiodcentered}
-        \imgraised{github} \href{#4}{#5}
+        \imgraised{github} \href{#6}{\ttfamily#5}
     \end{center}
 }
 
@@ -123,6 +123,12 @@
 % Create a education list
 \newcommand{\datelist}[1]{
     \speciallist[leftmargin=4.0cm]{#1}
+}
+
+\newcommand{\datelistold}[1]{
+    \ifthenelse{\equal{\fullresume}{true}}{
+        \datelist{#1}
+    }{}
 }
 
 % Create a paper list
