@@ -30,9 +30,9 @@
 \usepackage{hyperref}
 \hypersetup{
     colorlinks=true,
-    linkcolor=NavyBlue,
+    linkcolor=Black,
     filecolor=magenta,
-    urlcolor=NavyBlue,
+    urlcolor=Black,
 }
 
 % Turn off page numbering
@@ -51,6 +51,11 @@
     {}{0em}
     {}
 
+% A special image section
+\newcommand{\imgsection}[2]{
+    \section{\protect\includegraphics{#2}\hspace{3mm}#1}
+}
+
 % This provides dates to certain section headers
 \newcommand{\datedsection}[2]{%
     \section[#1]{#1 \hfill #2}%
@@ -62,6 +67,11 @@
 % Provide a command for name and contact information
 \newcommand{\name}[1]{
     \centerline{\Huge{#1}}
+}
+
+% Raise img icons a bit
+\newcommand{\imgraised}[1]{
+    \raisebox{-3pt}{\includegraphics{#1}}
 }
 
 \ExplSyntaxOn
@@ -80,14 +90,27 @@
 }
 \ExplSyntaxOff
 
-% Generate the new contact details
-\newcommand{\contact}[6]{
+% Generate the new contact details (In List Form)
+\newcommand{\contactlist}[6]{
     \speciallist[leftmargin=4.0cm, itemsep=-4pt]
         {Website:,\href{#3}{\ttfamily#3},
         GitHub:,\href{#5}{\ttfamily#5},
         GitLab:,\href{#6}{\ttfamily#6},
         Email:,\href{mailto:#1}{\ttfamily#1},
         Phone:,#2,Citizenship:,#4}
+}
+
+% Traditional compact contact details
+\newcommand{\contact}[5]{
+    \begin{center}
+        \imgraised{email} #1
+        {\LARGE\textperiodcentered}
+        \imgraised{phone} #2
+        {\LARGE\textperiodcentered}
+        \imgraised{website} #3
+        {\LARGE\textperiodcentered}
+        \imgraised{github} \href{#4}{#5}
+    \end{center}
 }
 
 % Create a skills list
