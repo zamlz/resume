@@ -166,3 +166,5 @@
         \jobsubsection{#1}{#2}{#3}{#4}
     }{}
 }
+
+% vim: set filetype=tex:
